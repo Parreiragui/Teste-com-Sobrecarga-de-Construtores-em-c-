@@ -11,11 +11,13 @@ private:
     double valorAtual;
 
 public:
-    // Construtor simples (delegando)
-    explicit SensorNivel(string novaTag)
+    /* A sobrecarga de construtores, nessa situação foi utilizada para permitir que diferentes objetos acessem apenas os 
+    parâmetros necessários em certas situações. Dentro dessa classe, por exemplo, diferentes sensores podem ser controlados.*/
+    
+   explicit SensorNivel(string novaTag)
         : SensorNivel(novaTag, 0.0, 0.0, 0.0) {}
 
-    // Construtor principal
+    
     SensorNivel(string novaTag, double novoMinimo, double novoMaximo, double novoValorAtual)
         : tag(novaTag), minimo(novoMinimo), maximo(novoMaximo), valorAtual(novoValorAtual) {}
 
@@ -32,11 +34,13 @@ private:
     double velocidade;
 
 public:
-    // Construtor simples (delegando)
+    
+/* Dentro da classe de Bombas, essa sobrecarga de construtores tem intuito semelhante a contruída dentro da classe de sensores. Entretanto,
+aqui tem como objetivo o controle de diferentes bombas com variáveis específicas. */
     explicit BombaTeste(string novaTag)
         : BombaTeste(novaTag, 0.0) {}
 
-    // Construtor principal
+    
     BombaTeste(string novaTag, double novaVelocidade)
         : tag(novaTag), velocidade(novaVelocidade) {}
 
@@ -53,11 +57,12 @@ private:
     double kp;
 
 public:
-    // Construtor simples (delegando)
+    /* Nesta última classe, a sobrecarga de construtores tem objetivo idêntico aos últimos dois. Outrossim, esse tem como intuito o
+    controle de diferentes objetos, nesse caso, os controladores de tanque. */
     explicit ControladorTanque(string novaTag)
         : ControladorTanque(novaTag, 0.0, 0.0) {}
 
-    // Construtor principal
+    
     ControladorTanque(string novaTag, double novoSetpoint, double novoKp)
         : tag(novaTag), setpoint(novoSetpoint), kp(novoKp) {}
 
